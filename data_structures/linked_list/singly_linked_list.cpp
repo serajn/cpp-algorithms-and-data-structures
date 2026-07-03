@@ -57,6 +57,52 @@ class SinglyLinkedList {
             }
         }
 
+        void removeFromTail() {
+            if(tail == nullptr) {
+                cout << "List is empty. Cannot remove from tail." << endl;
+                return;
+            }
+
+            if(head == tail) {
+                delete head;
+                head = nullptr;
+                tail = nullptr;
+                size--;
+            }
+            else {
+                Node* current = head;
+                while(current->next != tail) {
+                    current = current->next;
+                }
+                delete tail;
+                tail = current;
+                tail->next = nullptr;
+                size--;
+            }
+        }
+
+        // void removeValue(int val) {
+        //     if(head == nullptr) {
+        //         cout << "List is empty. Cannot remove value." << endl;
+        //         return;
+        //     }
+
+        //     if(head->data == val) {
+        //         removeFromHead();
+        //         return;
+        //     }
+
+        //     if(tail->data == val) {
+        //         removeFromTail();
+        //         return;
+        //     }
+
+        //     Node* current = head;
+        //     while(current->next != nullptr) {
+                
+        //     }
+        // }
+
         void print() {
             Node* current = head;
             while(current != nullptr) {
@@ -152,6 +198,9 @@ int main() {
     else {
         cout << "Node with value 50 not found." << endl;
     }
+
+    list.removeFromTail();
+    list.print(); // Output: 50 -> nullptr
 
     return 0;
 }
