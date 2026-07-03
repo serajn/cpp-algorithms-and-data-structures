@@ -43,6 +43,20 @@ class SinglyLinkedList {
             size++;
         }
 
+        void removeFromHead() {
+            if(head == nullptr) {
+                cout << "List is empty. Cannot remove from head." << endl;
+                return;
+            }
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            size--;
+            if(head == nullptr) {
+                tail = nullptr;
+            }
+        }
+
         void print() {
             Node* current = head;
             while(current != nullptr) {
@@ -100,7 +114,11 @@ int main() {
 
     list.insertAtTail(40);
     list.insertAtTail(50);
-    list.print(); // Output: 40 -> 50 -> nullptr
+    list.insertAtTail(60);
+    list.print(); // Output: 40 -> 50 -> 60 -> nullptr
+
+    list.removeFromHead();
+    list.print(); // Output: 50 -> 60 -> nullptr
 
     return 0;
 }
