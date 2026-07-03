@@ -12,17 +12,19 @@ struct Node {
 class SinglyLinkedList {
     public:
         Node* head;
+        Node* tail;
 
-        SinglyLinkedList() : head(nullptr) {}
+        SinglyLinkedList() : head(nullptr), tail(nullptr) {}
 
         void insert(int val) {
             if(head == nullptr) {
                 head = new Node(val);
+                tail = head;
             }
             else {
                 Node* newNode = new Node(val);
-                newNode->next = head;
-                head = newNode;
+                tail->next = newNode;
+                tail = newNode;
             }
         }
 
@@ -57,7 +59,7 @@ int main() {
     list.insert(20);
     list.insert(30);
 
-    list.display(); // Output: 30 -> 20 -> 10 -> nullptr
+    list.display(); // Output: 10 -> 20 -> 30 -> nullptr
 
     return 0;
 }
