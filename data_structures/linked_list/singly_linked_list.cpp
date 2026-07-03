@@ -7,3 +7,10 @@ struct Node {
     Node(int val) : data(val), next(nullptr) {}
 };
 
+class SinglyLinkedList {
+    public:
+        Node* head;
+
+        SinglyLinkedList() : head(nullptr) {}
+};
+
