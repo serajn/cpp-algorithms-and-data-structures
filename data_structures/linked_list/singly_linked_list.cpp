@@ -43,6 +43,31 @@ class SinglyLinkedList {
             size++;
         }
 
+        void insertAt(int val, int position) {
+            if(position < 0 || position > size) {
+                cout << "Invalid position. Cannot insert." << endl;
+                return;
+            }
+
+            if (position == 0) {
+                insertAtHead(val);
+                return;
+            }
+            else if (position == size) {
+                insertAtTail(val);
+                return;
+            }
+
+            Node* newNode = new Node(val);
+            Node* current = head;
+            for(int i = 0; i < position - 1; i++) {
+                current = current->next;
+            }
+            newNode->next = current->next;
+            current->next = newNode;
+            size++;
+        }
+
         void removeFromHead() {
             if(head == nullptr) {
                 cout << "List is empty. Cannot remove from head." << endl;
@@ -211,9 +236,12 @@ int main() {
     list.insertAtHead(70);
     list.insertAtHead(80);
     list.print(); // Output: 80 -> 70 -> 50 -> nullptr
-    
+
     list.removeValue(70);
     list.print(); // Output: 80 -> 50 -> nullptr
+
+    list.insertAt(90, 1);
+    list.print(); // Output: 80 -> 90 -> 50 -> nullptr
 
     return 0;
 }
