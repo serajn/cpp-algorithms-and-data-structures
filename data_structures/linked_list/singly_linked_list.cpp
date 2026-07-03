@@ -36,3 +36,13 @@ class SinglyLinkedList {
         }
 };
 
+int main() {
+    SinglyLinkedList list;
+    list.insert(10);
+    list.insert(20);
+    list.insert(30);
+
+    list.display(); // Output: 30 -> 20 -> 10 -> nullptr
+
+    return 0;
+}
