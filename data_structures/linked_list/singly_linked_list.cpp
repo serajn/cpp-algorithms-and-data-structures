@@ -75,7 +75,7 @@ class SinglyLinkedList {
             }
         }
 
-        bool contains(int val) {
+        bool contains(int val) const {
             Node* current = head;
             while(current != nullptr) {
                 if(current->data == val) {
@@ -84,6 +84,17 @@ class SinglyLinkedList {
                 current = current->next;
             }
             return false;
+        }
+
+        Node* find(int val) const {
+            Node* current = head;
+            while(current != nullptr) {
+                if(current->data == val) {
+                    return current;
+                }
+                current = current->next;
+            }
+            return nullptr;
         }
 
         int getSize() const {
@@ -133,6 +144,14 @@ int main() {
 
     cout << "Does the list contain 50? " << (list.contains(50) ? "Yes" : "No") << endl;
     cout << "Does the list contain 70? " << (list.contains(70) ? "Yes" : "No") << endl;
+
+    Node* foundNode = list.find(50);
+    if(foundNode != nullptr) {
+        cout << "Found node with value 50." << endl;
+    }
+    else {
+        cout << "Node with value 50 not found." << endl;
+    }
 
     return 0;
 }
