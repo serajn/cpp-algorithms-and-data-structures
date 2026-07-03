@@ -48,6 +48,10 @@ class SinglyLinkedList {
             }
         }
 
+        int getSize() const {
+            return size;
+        }
+
         void clear() {
             Node* current = head;
             while(current != nullptr) {
@@ -57,6 +61,7 @@ class SinglyLinkedList {
             }
             head = nullptr;
             tail = nullptr;
+            size = 0;
         }
         
         ~SinglyLinkedList() {
@@ -74,9 +79,11 @@ int main() {
     list.print(); // Output: 30 -> 20 -> 10 -> nullptr
 
     cout << "Is the list empty? " << (list.empty() ? "Yes" : "No") << endl;
+    cout << "Size of the list: " << list.getSize() << endl;
 
     list.clear();
     cout << "Is the list empty after clearing? " << (list.empty() ? "Yes" : "No") << endl;
+    cout << "Size of the list after clearing: " << list.getSize() << endl;
 
     return 0;
 }
