@@ -36,13 +36,8 @@ class SinglyLinkedList {
             }
             cout << "nullptr" << endl;
         }
-        
-        ~SinglyLinkedList() {
-            deleteList();
-            cout << "List deleted." << endl;
-        }
-    private:
-        void deleteList() {
+
+        void clear() {
             Node* current = head;
             while(current != nullptr) {
                 Node* nextNode = current->next;
@@ -50,7 +45,13 @@ class SinglyLinkedList {
                 current = nextNode;
             }
             head = nullptr;
+            tail = nullptr;
         }
+        
+        ~SinglyLinkedList() {
+            clear();
+            cout << "List cleared." << endl;
+        } 
 };
 
 int main() {
