@@ -16,15 +16,15 @@ class SinglyLinkedList {
 
         SinglyLinkedList() : head(nullptr), tail(nullptr) {}
 
-        void insert(int val) {
+        void insertAtHead(int val) {
             if(head == nullptr) {
                 head = new Node(val);
                 tail = head;
             }
             else {
                 Node* newNode = new Node(val);
-                tail->next = newNode;
-                tail = newNode;
+                newNode->next = head;
+                head = newNode;
             }
         }
 
@@ -55,11 +55,11 @@ class SinglyLinkedList {
 
 int main() {
     SinglyLinkedList list;
-    list.insert(10);
-    list.insert(20);
-    list.insert(30);
+    list.insertAtHead(10);
+    list.insertAtHead(20);
+    list.insertAtHead(30);
 
-    list.display(); // Output: 10 -> 20 -> 30 -> nullptr
+    list.display(); // Output: 30 -> 20 -> 10 -> nullptr
 
     return 0;
 }
