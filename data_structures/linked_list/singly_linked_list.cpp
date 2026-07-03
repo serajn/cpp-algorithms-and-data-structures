@@ -1,5 +1,7 @@
 # include <iostream>
 
+using namespace std;
+
 struct Node {
     int data;
     Node* next;
@@ -22,6 +24,15 @@ class SinglyLinkedList {
                 newNode->next = head;
                 head = newNode;
             }
+        }
+
+        void display() {
+            Node* current = head;
+            while(current != nullptr) {
+                cout << current->data << " -> ";
+                current = current->next;
+            }
+            cout << "nullptr" << endl;
         }
 };
 
