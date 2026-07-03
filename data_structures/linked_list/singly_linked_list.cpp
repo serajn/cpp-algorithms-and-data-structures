@@ -134,6 +134,19 @@ class SinglyLinkedList {
             }
         }
 
+        void reverse() {
+            Node* prev = nullptr;
+            Node* current = head;
+            tail = head; // Update tail to the current head
+            while(current != nullptr) {
+                Node* nextNode = current->next;
+                current->next = prev;
+                prev = current;
+                current = nextNode;
+            }
+            head = prev;
+        }
+
         void print() {
             Node* current = head;
             while(current != nullptr) {
@@ -242,6 +255,9 @@ int main() {
 
     list.insertAt(90, 1);
     list.print(); // Output: 80 -> 90 -> 50 -> nullptr
+
+    list.reverse();
+    list.print(); // Output: 50 -> 90 -> 80 -> nullptr
 
     return 0;
 }
