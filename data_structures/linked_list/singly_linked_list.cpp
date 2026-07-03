@@ -30,6 +30,19 @@ class SinglyLinkedList {
             size++;
         }
 
+        void insertAtTail(int val) {
+            if(tail == nullptr) {
+                tail = new Node(val);
+                head = tail;
+            }
+            else {
+                Node* newNode = new Node(val);
+                tail->next = newNode;
+                tail = newNode;
+            }
+            size++;
+        }
+
         void print() {
             Node* current = head;
             while(current != nullptr) {
@@ -84,6 +97,10 @@ int main() {
     list.clear();
     cout << "Is the list empty after clearing? " << (list.empty() ? "Yes" : "No") << endl;
     cout << "Size of the list after clearing: " << list.getSize() << endl;
+
+    list.insertAtTail(40);
+    list.insertAtTail(50);
+    list.print(); // Output: 40 -> 50 -> nullptr
 
     return 0;
 }
