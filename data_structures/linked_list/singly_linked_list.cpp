@@ -81,27 +81,33 @@ class SinglyLinkedList {
             }
         }
 
-        // void removeValue(int val) {
-        //     if(head == nullptr) {
-        //         cout << "List is empty. Cannot remove value." << endl;
-        //         return;
-        //     }
+        void removeValue(int val) {
+            if(head == nullptr) {
+                cout << "List is empty. Cannot remove value." << endl;
+                return;
+            }
 
-        //     if(head->data == val) {
-        //         removeFromHead();
-        //         return;
-        //     }
+            if(head->data == val) {
+                removeFromHead();
+                return;
+            }
 
-        //     if(tail->data == val) {
-        //         removeFromTail();
-        //         return;
-        //     }
+            if(tail->data == val) {
+                removeFromTail();
+                return;
+            }
 
-        //     Node* current = head;
-        //     while(current->next != nullptr) {
-                
-        //     }
-        // }
+            Node* current = head;
+            while(current->next != nullptr) {
+                if(current->next->data == val) {
+                    Node* temp = current->next;
+                    current->next = current->next->next;
+                    delete temp;
+                    size--;
+                    return;
+                }
+            }
+        }
 
         void print() {
             Node* current = head;
@@ -201,6 +207,13 @@ int main() {
 
     list.removeFromTail();
     list.print(); // Output: 50 -> nullptr
+
+    list.insertAtHead(70);
+    list.insertAtHead(80);
+    list.print(); // Output: 80 -> 70 -> 50 -> nullptr
+    
+    list.removeValue(70);
+    list.print(); // Output: 80 -> 50 -> nullptr
 
     return 0;
 }
