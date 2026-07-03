@@ -37,6 +37,15 @@ class SinglyLinkedList {
             cout << "nullptr" << endl;
         }
 
+        bool empty() {
+            if (head == nullptr) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
         void clear() {
             Node* current = head;
             while(current != nullptr) {
