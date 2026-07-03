@@ -13,8 +13,9 @@ class SinglyLinkedList {
     public:
         Node* head;
         Node* tail;
+        int size;
 
-        SinglyLinkedList() : head(nullptr), tail(nullptr) {}
+        SinglyLinkedList() : head(nullptr), tail(nullptr), size(0) {}
 
         void insertAtHead(int val) {
             if(head == nullptr) {
@@ -26,6 +27,7 @@ class SinglyLinkedList {
                 newNode->next = head;
                 head = newNode;
             }
+            size++;
         }
 
         void print() {
@@ -59,7 +61,7 @@ class SinglyLinkedList {
         
         ~SinglyLinkedList() {
             clear();
-            cout << "List cleared." << endl;
+            cout << "List destroyed." << endl;
         } 
 };
 
@@ -70,6 +72,11 @@ int main() {
     list.insertAtHead(30);
 
     list.print(); // Output: 30 -> 20 -> 10 -> nullptr
+
+    cout << "Is the list empty? " << (list.empty() ? "Yes" : "No") << endl;
+
+    list.clear();
+    cout << "Is the list empty after clearing? " << (list.empty() ? "Yes" : "No") << endl;
 
     return 0;
 }
