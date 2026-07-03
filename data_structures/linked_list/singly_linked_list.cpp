@@ -28,7 +28,7 @@ class SinglyLinkedList {
             }
         }
 
-        void display() {
+        void print() {
             Node* current = head;
             while(current != nullptr) {
                 cout << current->data << " -> ";
@@ -59,7 +59,7 @@ int main() {
     list.insertAtHead(20);
     list.insertAtHead(30);
 
-    list.display(); // Output: 30 -> 20 -> 10 -> nullptr
+    list.print(); // Output: 30 -> 20 -> 10 -> nullptr
 
     return 0;
 }
