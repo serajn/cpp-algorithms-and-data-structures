@@ -34,6 +34,21 @@ class SinglyLinkedList {
             }
             cout << "nullptr" << endl;
         }
+        
+        ~SinglyLinkedList() {
+            deleteList();
+            cout << "List deleted." << endl;
+        }
+    private:
+        void deleteList() {
+            Node* current = head;
+            while(current != nullptr) {
+                Node* nextNode = current->next;
+                delete current;
+                current = nextNode;
+            }
+            head = nullptr;
+        }
 };
 
 int main() {
