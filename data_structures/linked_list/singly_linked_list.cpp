@@ -75,6 +75,17 @@ class SinglyLinkedList {
             }
         }
 
+        bool contains(int val) {
+            Node* current = head;
+            while(current != nullptr) {
+                if(current->data == val) {
+                    return true;
+                }
+                current = current->next;
+            }
+            return false;
+        }
+
         int getSize() const {
             return size;
         }
@@ -119,6 +130,9 @@ int main() {
 
     list.removeFromHead();
     list.print(); // Output: 50 -> 60 -> nullptr
+
+    cout << "Does the list contain 50? " << (list.contains(50) ? "Yes" : "No") << endl;
+    cout << "Does the list contain 70? " << (list.contains(70) ? "Yes" : "No") << endl;
 
     return 0;
 }
