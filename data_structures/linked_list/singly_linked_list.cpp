@@ -12,5 +12,16 @@ class SinglyLinkedList {
         Node* head;
 
         SinglyLinkedList() : head(nullptr) {}
+
+        void insert(int val) {
+            if(head == nullptr) {
+                head = new Node(val);
+            }
+            else {
+                Node* newNode = new Node(val);
+                newNode->next = head;
+                head = newNode;
+            }
+        }
 };
 
