@@ -23,6 +23,7 @@ class SinglyLinkedList {
         void removeFromTail();
         void removeValue(int val);
         void reverse();
+        int front() const;
         void print();
         bool empty();
         bool contains(int val) const;

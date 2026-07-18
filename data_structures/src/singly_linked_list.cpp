@@ -133,6 +133,14 @@ void SinglyLinkedList::reverse() {
     head = prev;
 }
 
+int SinglyLinkedList::front() const {
+    if(head == nullptr) {
+        cout << "List is empty. No front element." << endl;
+        return -1; // or throw an exception
+    }
+    return head->data;
+}
+
 void SinglyLinkedList::print() {
     Node* current = head;
     while(current != nullptr) {
